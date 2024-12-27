@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ancient Monument App</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+
+    <!-- Nav bar -->
+    <nav>
+        <div class="nav-left">
+            <h1>Ancient Monuments</h1>
+        </div>
+        <div class="nav-right">
+            <button onclick="showLoginModal()">Login</button>
+            <button onclick="showSignupModal()">Sign Up</button>
+            <button>About Us</button>
+        </div>
+    </nav>
+
+    <!-- Search box -->
+    <div class="search-container">
+        <input type="text" id="search-box" placeholder="Search for a monument...">
+        <button onclick="searchMonument()">Search</button>
+    </div>
+
+    <!-- Display monuments -->
+    <div class="monuments-container">
+        <div class="monument">
+            <img src="https://www.usnews.com/object/image/00000169-5e06-df95-a57d-7ec6abfb0000/5-taj-mahal-getty.jpg?update-time=1706734280787&size=responsive970" alt="Taj Mahal">
+            <h2>Taj Mahal</h2>
+            <p>A white marble mausoleum in India, built by Mughal emperor Shah Jahan.</p>
+            <p>It stands as a symbol of eternal love and attracts millions of tourists.</p>
+        </div>
+        <div class="monument">
+            <img src="https://www.usnews.com/object/image/00000169-5e06-df95-a57d-7ec6a6c10000/4-eiffel-tower-getty.jpg?update-time=1706734251733&size=responsive970" alt="Eiffel Tower">
+            <h2>Eiffel Tower</h2>
+            <p>An iconic iron structure in Paris, France, designed by Gustave Eiffel.</p>
+            <p>It is a global symbol of romance and one of the most visited landmarks.</p>
+        </div>
+        <div class="monument">
+            <img src="https://www.usnews.com/object/image/00000169-5e06-df95-a57d-7ec6beae0000/8-great-wall-getty.jpg?update-time=1706734540301&size=responsive970" alt="Great Wall of China">
+            <h2>Great Wall of China</h2>
+            <p>A vast wall stretching over 13,000 miles, built to protect ancient China.</p>
+            <p>This UNESCO World Heritage site is a wonder of ancient architecture.</p>
+        </div>
+        <div class="monument">
+            <img src="https://www.usnews.com/object/image/00000169-5e07-df95-a57d-7ec72d990000/3-sydney-opera-house-submitted-masaru-kitano-snak-productions-tourism-australia-4.jpg?update-time=1706734219374&size=responsive970" alt="Sydney Opera House">
+            <h2>Sydney Opera House</h2>
+            <p>A modern architectural marvel in Sydney, Australia, designed by Jørn Utzon.</p>
+            <p>It hosts performances and is recognized for its sail-like design.</p>
+        </div>
+        <div class="monument">
+            <img src="https://www.usnews.com/object/image/00000169-5e06-df95-a57d-7ec6b8380000/machu-picchu-stock.jpg?update-time=1706802704566&size=responsive970" alt="Machu Picchu">
+            <h2>Machu Picchu</h2>
+            <p>An ancient Incan city in the Andes of Peru, known for its historic ruins.</p>
+            <p>It stands as a symbol of the advanced civilization of the Incas.</p>
+        </div>
+        <div class="monument">
+            <img src="https://www.usnews.com/object/image/00000169-5e07-df95-a57d-7ec70b790000/19030830famouslandmarks-stock.jpg?update-time=1706801836856&size=responsive970" alt="The Colosseum">
+            <h2>The Colosseum</h2>
+            <p>An ancient Roman amphitheater in Italy, used for gladiator combats.</p>
+            <p>It remains a symbol of Rome's architectural and engineering prowess.</p>
+        </div>
+        <div class="monument">
+            <img src="https://www.worldatlas.com/upload/f4/d8/7b/shutterstock-1397031029.jpg" alt="Statue of Liberty">
+            <h2>Statue of Liberty</h2>
+            <p>A gift from France to the U.S., symbolizing freedom and democracy.</p>
+            <p>This iconic statue stands on Liberty Island in New York City.</p>
+        </div>
+        <div class="monument">
+            <img src="https://www.usnews.com/object/image/00000169-5e07-df95-a57d-7ec71f450000/30-stonehenge-getty.jpg?update-time=1706802039588&size=responsive970" alt="Stonehenge">
+            <h2>Stonehenge</h2>
+            <p>A prehistoric monument in England, featuring a ring of massive stones.</p>
+            <p>Its purpose remains a mystery, attracting visitors worldwide.</p>
+        </div>
+        <div class="monument">
+            <img src="https://www.usnews.com/object/image/00000185-cfcb-deea-a3a5-efdf6aa60000/potala-palace-stock.jpg?update-time=1706802323548&size=responsive970" alt="Potala Palace">
+            <h2>Potala Palace</h2>
+            <p>Located in Tibet, this palace served as the winter residence of the Dalai Lama.</p>
+            <p>It is known for its grand architecture and spiritual significance.</p>
+        </div>
+        <div class="monument">
+            <img src="https://www.usnews.com/object/image/00000169-5e07-df95-a57d-7ec71bab0000/29-ha-long-bay-getty.jpg?update-time=1706801999293&size=responsive970" alt="Ha Long Bay">
+            <h2>Ha Long Bay</h2>
+            <p>A UNESCO World Heritage site in Vietnam, famous for its limestone karsts.</p>
+            <p>It is a popular destination for tourists seeking scenic boat tours.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>About | Help Center | Privacy and Terms | More</p>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLoginModal()">&times;</span>
+            <form id="loginForm">
+                <h2>Login</h2>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signup-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeSignupModal()">&times;</span>
+            <form id="signupForm">
+                <h2>Sign Up</h2>
+                <input type="email" id="newEmail" placeholder="Email" required>
+                <input type="password" id="newPassword" placeholder="Password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+
+</body>
+</html>
