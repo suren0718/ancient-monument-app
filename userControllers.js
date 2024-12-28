@@ -63,7 +63,7 @@ const addFavouriteMonument = async (req, res) => {
     }
     await User.updateOne(
       { email: email },
-      { $push: { favouriteMonuments: monument._id } }
+      { $addToSet: { favouriteMonuments: monument._id } }
     );
     res.status(200).json({ message: "Monument added to favorites" });
   } catch (error) {

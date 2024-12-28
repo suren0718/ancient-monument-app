@@ -18,6 +18,12 @@ function closeSignupModal() {
   document.getElementById("signup-modal").style.display = "none";
 }
 
+document.querySelectorAll(".modal-content").forEach((element) =>
+  element.addEventListener("click", function (event) {
+    event.stopPropagation();
+  })
+);
+
 // Handle login form submission
 document
   .getElementById("loginForm")
@@ -227,4 +233,7 @@ document.addEventListener("DOMContentLoaded", () => {
   toggleNav();
 });
 
-console.log(localStorage.getItem("favouriteMonuments"));
+console.log(
+  localStorage.getItem("favouriteMonuments"),
+  localStorage.getItem("authEmail")
+);
